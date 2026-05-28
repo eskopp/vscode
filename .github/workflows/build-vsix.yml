@@ -16,17 +16,17 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
 
       - name: Install vsce
         run: npm install -g @vscode/vsce
 
       - name: Package extension
-        run: vsce package --allow-missing-repository
+        run: vsce package --out frostfire-theme.vsix
 
       - name: Upload VSIX artifact
         uses: actions/upload-artifact@v4
         with:
-          name: frostfire-theme-${{ github.sha }}
-          path: "*.vsix"
+          name: frostfire-theme
+          path: frostfire-theme.vsix
           retention-days: 90
