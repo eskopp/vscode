@@ -1,13 +1,23 @@
 # Frostfire Theme
 
-A dual-variant VSCode color theme balancing icy frost blues with vivid fire oranges and reds.
+A dual-variant VSCode color theme balancing icy Nord blues with expressive syntax highlighting.
+
+## Preview
+
+### Dark
+
+<img src="assets/frostfire_dark.png" width="800" alt="Frostfire Dark" />
+
+### Light
+
+<img src="assets/frostbite_light.png" width="800" alt="Frostfire Light" />
 
 ## Variants
 
-| Variant | Background | Accent |
+| Variant | Background | UI Accent |
 |---|---|---|
-| **Frostfire Dark** | `#1A1E2E` deep night blue | `#FF6B35` fire orange + `#88C0D0` ice blue |
-| **Frostfire Light** | `#F0F4F8` snow white | `#D94F00` ember red + `#4C87B9` frost blue |
+| **Frostfire Dark** | `#2E3440` Polar Night | `#88C0D0` Frost |
+| **Frostfire Light** | `#ECEFF4` Snow Storm | `#5E81AC` Frost |
 
 ## Color Palette
 
@@ -15,31 +25,41 @@ A dual-variant VSCode color theme balancing icy frost blues with vivid fire oran
 
 | Role | Color |
 |---|---|
-| Background | `#1A1E2E` |
+| Background | `#2E3440` |
 | Foreground | `#D8DEE9` |
-| Keywords | `#FF6B35` fire orange |
-| Functions | `#88C0D0` ice blue |
-| Strings | `#A3BE8C` frost green |
-| Types / Classes | `#FFD166` ember gold |
-| Numbers / Booleans | `#B48EAD` amethyst |
-| Comments | `#616E88` muted |
-| Errors | `#FF4D6D` hot red |
+| Keywords | `#C792EA` purple |
+| Functions | `#82AAFF` blue |
+| Strings | `#98C379` green |
+| Classes | `#F69D50` orange |
+| Numbers | `#FF5370` red |
+| Parameters | `#e5c07b` yellow |
+| Comments | `#ABB2BF` muted |
+| Errors | `#BF616A` |
 
 ### Light
 
 | Role | Color |
 |---|---|
-| Background | `#F0F4F8` |
+| Background | `#ECEFF4` |
 | Foreground | `#2E3440` |
-| Keywords | `#D94F00` ember orange |
-| Functions | `#2F6699` steel blue |
-| Strings | `#4A7C59` forest green |
-| Types / Classes | `#9A6B00` dark gold |
-| Numbers / Booleans | `#6E4D8F` deep violet |
-| Comments | `#7A8FA8` muted |
-| Errors | `#C0392B` crimson |
+| Keywords | `#7040AA` purple |
+| Functions | `#2F6699` blue |
+| Strings | `#4A7C59` green |
+| Classes | `#C07000` orange |
+| Numbers | `#BF616A` red |
+| Parameters | `#9A7200` yellow |
+| Comments | `#6A737D` muted |
+| Errors | `#BF616A` |
 
 ## Installation
+
+### Via VSIX (recommended)
+
+Download `frostfire-theme.vsix` from the [latest release](https://github.com/eskopp/vscode/releases/latest) and run:
+
+```bash
+code --install-extension frostfire-theme.vsix
+```
 
 ### From source
 
@@ -47,14 +67,6 @@ A dual-variant VSCode color theme balancing icy frost blues with vivid fire oran
 git clone https://github.com/eskopp/vscode
 cd vscode
 # Press F5 in VSCode to launch the Extension Development Host
-```
-
-### Via VSIX
-
-```bash
-npm install -g @vscode/vsce
-vsce package
-code --install-extension frostfire-theme-*.vsix
 ```
 
 ## License
