@@ -25,7 +25,7 @@ jobs:
         run: vsce package --out frostfire-theme.vsix
 
       - name: Upload VSIX artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: frostfire-theme
           path: frostfire-theme.vsix
