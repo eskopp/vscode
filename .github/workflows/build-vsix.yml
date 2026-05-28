@@ -8,6 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     permissions:
       contents: write
 
@@ -26,11 +27,18 @@ jobs:
       - name: Package extension
         run: vsce package --out frostfire-theme.vsix
 
-      - name: Upload artifact (all branches)
+      - name: Check VSIX file
+        run: |
+          ls -lah
+          test -f frostfire-theme.vsix
+          unzip -l frostfire-theme.vsix | head -40
+
+      - name: Upload VSIX artifact
         uses: actions/upload-artifact@v7
         with:
-          name: frostfire-theme
-          path: frostfire-theme.vsix
+          name: frostbite_vsix
+          path: ./frostfire-theme.vsix
+          if-no-files-found: error
           retention-days: 90
 
       - name: Publish latest release (main only)
@@ -38,9 +46,10 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release delete latest --yes 2>/dev/null || true
-          gh release create latest frostfire-theme.vsix \
+          gh release delete latest --cleanup-tag --yes 2>/dev/null || true
+
+          gh release create latest ./frostfire-theme.vsix \
             --title "Frostfire Theme – Latest Build" \
-            --notes "Automatically built from the latest commit on \`main\`. Download \`frostfire-theme.vsix\` and install via: \`code --install-extension frostfire-theme.vsix\`" \
+            --notes "Automatically built from the latest commit on main. Download frostfire-theme.vsix and install via: code --install-extension frostfire-theme.vsix" \
             --prerelease \
-            --target ${{ github.sha }}
+            --target "${{ github.sha }}"
