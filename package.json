@@ -1,0 +1,50 @@
+{
+  "name": "frostfire-theme",
+  "displayName": "Frostfire Theme",
+  "description": "A dual-variant theme balancing icy frost blues with vivid fire oranges and reds.",
+  "version": "0.1.0",
+  "publisher": "eskopp",
+  "author": {
+    "name": "Erik Skopp",
+    "email": "info@erik-skopp.de"
+  },
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "dark",
+    "light",
+    "frost",
+    "fire",
+    "blue",
+    "orange"
+  ],
+  "galleryBanner": {
+    "color": "#1A1E2E",
+    "theme": "dark"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "Frostfire Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/frostfire-dark-color-theme.json"
+      },
+      {
+        "label": "Frostfire Light",
+        "uiTheme": "vs",
+        "path": "./themes/frostfire-light-color-theme.json"
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eskopp/vscode"
+  },
+  "icon": "icon.png",
+  "license": "MIT"
+}
