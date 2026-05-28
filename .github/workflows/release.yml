@@ -1,0 +1,41 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+
+      - name: Install vsce
+        run: npm install -g @vscode/vsce
+
+      - name: Package extension
+        run: vsce package --out frostfire-theme.vsix
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${{ github.ref_name }}" frostfire-theme.vsix \
+            --title "Frostfire Theme ${{ github.ref_name }}" \
+            --notes "## Frostfire Theme ${{ github.ref_name }}
+
+          Download \`frostfire-theme.vsix\` and install:
+          \`\`\`
+          code --install-extension frostfire-theme.vsix
+          \`\`\`" \
+            --verify-tag
