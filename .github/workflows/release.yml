@@ -32,10 +32,13 @@ jobs:
         run: |
           gh release create "${{ github.ref_name }}" frostfire-theme.vsix \
             --title "Frostfire Theme ${{ github.ref_name }}" \
-            --notes "## Frostfire Theme ${{ github.ref_name }}
+            --notes "## Installation
 
-          Download \`frostfire-theme.vsix\` and install:
+          Download \`frostfire-theme.vsix\` and run:
           \`\`\`
           code --install-extension frostfire-theme.vsix
-          \`\`\`" \
+          \`\`\`
+
+          ---" \
+            --generate-notes \
             --verify-tag
